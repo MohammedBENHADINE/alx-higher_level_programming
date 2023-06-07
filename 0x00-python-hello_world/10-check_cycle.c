@@ -1,7 +1,31 @@
 #include "lists.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <inttypes.h>
+/**
+ * lookup_add - check if address already passed by
+ * @list: pointer to Pointers list
+ * @add: add to check
+ * Return: 1 if exists, 0 if not
+ */
 
+int lookup_add(listint_t *list, int add)
+{
+	listint_t *temp = list;
+
+	while (temp != NULL)
+	{
+		if (temp->n == add)
+		{
+			return (1);
+		}
+		else
+		{
+			temp = temp->next;
+		}
+	}
+	return (0);
+}
 /**
  * check_cycle -  cycle checker
  * @list: pointer on list
@@ -12,20 +36,21 @@
 int check_cycle(listint_t *list)
 {
 	listint_t *cycle_t;
-	listint_t *tmp;
+	listint_t *headPointers = NULL;
 
 	if (list == NULL)
 		return (-1);
-	cycle_t = list;
+	add_nodeint(&headPointers, (int)(intptr_t)list);
+	cycle_t = list->next;
 	while (cycle_t)
 	{
-		tmp = cycle_t;
-		while (tmp)
+		if (lookup_add(headPointers, (int)(intptr_t)cycle_t))
 		{
-			if (tmp->next != cycle_t)
-				tmp = tmp->next;
-			else
-				return (1);
+			return (1);
+		}
+		else
+		{
+			add_nodeint(&headPointers, (int)(intptr_t)cycle_t);
 		}
 		cycle_t = cycle_t->next;
 	}

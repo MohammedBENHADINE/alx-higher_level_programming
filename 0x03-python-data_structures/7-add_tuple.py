@@ -1,7 +1,15 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
-    a1, a2 = tuple_a[:2] + (0, 0)[:2 - len(tuple_a)]
-    b1, b2 = tuple_b[:2] + (0, 0)[:2 - len(tuple_b)]
-    sum_1 = a1 + b1
-    sum_2 = a2 + b2
-    return sum_1, sum_2
+    tup = ()
+    if len(tuple_a) < 1:
+        tuple_a = tuple_a + (0, 0)
+    elif len(tuple_a) < 2:
+        tuple_a = tuple_a + (0,)
+    if len(tuple_b) < 1:
+        tuple_b = tuple_b + (0, 0)
+    elif len(tuple_b) < 2:
+        tuple_b = tuple_b + (0,)
+    for i, j in zip(tuple_a, tuple_b):
+        tup = tup + (i + j,)
+    final = (tup[0], tup[1])
+    return (final)

@@ -43,19 +43,14 @@ class Square:
 
     def __str__(self):
         """Bind it to custom print already developped"""
-        res = ""
-        if self.__size == 0:
-            return res
-        else:
-            for y in range(self.__position[1]):
-                res += "\n"
-            for i in range(self.__size):
-                for x in range(self.__position[0]):
-                    res += " "
-                for j in range(self.__size):
-                    res += "#"
-                res += "\n"
-        return res
+        if self.size == 0:
+            return ""
+        square_str = ""
+        for _ in range(self.position[1]):
+            square_str += "\n"
+        for _ in range(self.size):
+            square_str += " " * self.position[0] + "#" * self.size + "\n"
+        return square_str.rstrip()
 
     @property
     def position(self):

@@ -39,10 +39,12 @@ class Node:
 
 
 class SinglyLinkedList:
+    """Class linked list"""
     def __init__(self):
         self.__head = None
 
     def __str__(self):
+        """Display data when printing a linked list instance"""
         shlist = ""
         temp = self.__head
         while (temp is not None):
@@ -53,6 +55,7 @@ class SinglyLinkedList:
         return shlist
 
     def sorted_insert(self, value):
+        """The most important method is this one"""
         new = None
         if self.__head is None:
             self.__head = Node(value, None)

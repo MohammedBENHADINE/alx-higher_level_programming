@@ -13,17 +13,20 @@ class Square:
         """Validate if size is an integer
         It must also be superiour or qual to zero
         """
-        self.size(self, size)
+        self.__size = 0  # init before
+        self.size = size  # call to a local prperty
 
+    @property
     def size(self):
         return self.__size
 
-    def size(self, size):
-        if (type(size) != int):
+    @size.setter
+    def size(self, value):
+        if (type(value) != int):
             raise TypeError("size must be an integer")
-        if (size < 0):
+        if (value < 0):
             raise ValueError("size must be >= 0")
-        self.__size = size
+        self.__size = value
 
     def area(self):
         return self.__size*self.__size

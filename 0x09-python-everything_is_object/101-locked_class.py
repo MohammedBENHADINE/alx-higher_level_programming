@@ -8,7 +8,7 @@ class LockedClass:
     """
     def __setattr__(self, name, value):
         """Magic class"""
-        if not hasattr(self, name) or name == 'first_name':
+        if hasattr(self, name) or name == 'first_name':
             self.__dict__[name] = value
         else:
             raise AttributeError(

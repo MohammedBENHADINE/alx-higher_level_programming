@@ -94,7 +94,7 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """Returns area of a rectangle of a given `width` and `height`.
+        """Returns area of a rectangle of a given.
 
         Attributes:
             __width (int): horizontal dimension of rectangle
@@ -175,7 +175,8 @@ class Rectangle:
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
-        """Compares the area of two instances and returns the larger of the two.
+        """Compares the area of two instances and returns
+        the larger of the two.
 
         Args:
             rect_1 (Rectangle object): first instance to be compared

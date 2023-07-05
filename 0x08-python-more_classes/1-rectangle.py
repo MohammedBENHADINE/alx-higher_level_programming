@@ -10,8 +10,8 @@ class Rectangle:
     """
     def __init__(self, width=0, height=0):
         """Init magic method"""
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def height(self):

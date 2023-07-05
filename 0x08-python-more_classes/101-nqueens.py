@@ -128,6 +128,8 @@ def coordinate_format(candidates):
     return holberton
 
 # init candidates list with first column of 0s
+
+
 candidates = []
 candidates.append(board_column_gen())
 

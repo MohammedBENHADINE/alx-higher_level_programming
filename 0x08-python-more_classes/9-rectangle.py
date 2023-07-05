@@ -82,9 +82,11 @@ class Rectangle:
         return res.rstrip()
 
     def __repr__(self):
+        """Magic method fallback"""
         return "Rectangle(" + str(self.__width) + ", " \
                 + str(self.__height) + ")"
 
     def __del__(self):
+        """magic method"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1

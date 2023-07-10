@@ -17,4 +17,3 @@ class Square(Rectangle):
     def area(self):
         """calculate area of width and height"""
         return self.__size * self.__size
-

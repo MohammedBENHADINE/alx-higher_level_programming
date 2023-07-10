@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""This a module's comment"""
+"""
+This a module's comment
+"""
 
 
 class MyList(list):
-    """Class object of type MyList"""
+    """Class object of type MyList
+    """
     def print_sorted(self):
-        """Print the list in ascending mode"""
+        """Print the list in ascending mode
+        """
         print(sorted(self))

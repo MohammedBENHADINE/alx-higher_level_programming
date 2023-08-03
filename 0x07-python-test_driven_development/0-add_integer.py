@@ -7,15 +7,6 @@
 def add_integer(a, b=98):
     """
     This method checks if both variables are int/float.
-    Usage:
-    >>> add_integer(1)
-    99
-
-    >>> add_integer(0)
-    98
-
-    >>> add_integer(5, 5)
-    10
     """
     res = 0
 

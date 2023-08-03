@@ -1,0 +1,35 @@
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+>>> mat1 = [
+... [1, 2, 3],
+... [4, 5],
+... [2, 8, 9]
+... ]
+
+>>> matrix_divided(mat1, 8)
+Traceback (most recent call last):
+...
+TypeError: Each row of the matrix must have the same size
+
+>>> mat2 = [
+... [1, 2, 3],
+... [4, 5, 8],
+... ["2", 8, 9]
+... ]
+
+>>> matrix_divided(mat2, 8)
+Traceback (most recent call last):
+...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+>>> mat3 = [
+... [1, 2, 3],
+... [4, 5, 5],
+... [2, 8, 9]
+... ]
+
+>>> matrix_divided(mat3, 0)
+Traceback (most recent call last):
+...
+ZeroDivisionError: division by zero
+

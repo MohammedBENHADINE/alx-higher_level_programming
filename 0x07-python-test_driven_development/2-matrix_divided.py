@@ -1,25 +1,23 @@
 #!/usr/bin/python3
-"""
-    divide matrix by an integer
-"""
-
-
 def matrix_divided(matrix, div):
-    """
-    divide matrix elements by div
-    while making sure types are correct
-    """
-    base = len(matrix[0])
-    if type(div) not in [int, float]:
+    errorMessage = "matrix must be a matrix (list of lists) of integers/floats"
+    if not matrix:
+        raise TypeError(errorMessage)
+    if not isinstance(matrix, list):
+        raise TypeError(errorMessage)
+    for lists in matrix:
+        if not isinstance(lists, list):
+            raise TypeError(errorMessage)
+        for item in lists:
+            if not isinstance(item, int) and not isinstance(item, float):
+                raise TypeError(errorMessage)
+    for lists in matrix:
+        if len(lists) == 0:
+            raise TypeError(errorMessage)
+    if not isinstance(div, int) and not isinstance(div, float):
         raise TypeError("div must be a number")
+    if not all(len(lists) == len(matrix[0]) for lists in matrix):
+        raise TypeError("Each row of the matrix must have the same size")
     if div == 0:
         raise ZeroDivisionError("division by zero")
-    for row in matrix:
-        if len(row) != base:
-            raise TypeError("Each row of the matrix must have the same size")
-        for x in row:
-            if type(x) not in [int, float]:
-                raise TypeError("matrix must be a matrix (list of lists) "
-                                "of integers/floats")
-    newmatrix = [[round(x/div, 2) for x in row] for row in matrix]
-    return newmatrix
+    return [[round(item / div, 2) for item in lists] for lists in matrix]

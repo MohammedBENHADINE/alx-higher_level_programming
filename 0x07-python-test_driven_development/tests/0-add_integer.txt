@@ -32,12 +32,15 @@ Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
+>>> from numpy import inf
+
+
 >>> add_integer(inf)
 Traceback (most recent call last):
 ...
 ValueError: Float overflow
 
->>> add_integer()
+>>> add_integer(NaN)
 Traceback (most recent call last):
 ...
 ValueError: cannot convert float NaN to integer

@@ -13,4 +13,3 @@ WHERE tv_shows.id NOT IN (
     )
 )
 ORDER BY tv_shows.title ASC;
-

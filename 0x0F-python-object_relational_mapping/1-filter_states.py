@@ -13,8 +13,8 @@ if __name__ == "__main__":
                          passwd=sys.argv[2], db=sys.argv[3])
     cur = db.cursor()
     cur.execute("SELECT * FROM states \
-                 WHERE name REGEXP '^[N]' \
-                 ORDER BY id")
+                 WHERE states.name REGEXP '^[N]' \
+                 ORDER BY states.id ASC")
     rows = cur.fetchall()
     for row in rows:
         print(f"({row[0]}, '{row[1]}')")

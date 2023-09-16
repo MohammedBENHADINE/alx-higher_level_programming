@@ -1,22 +1,43 @@
 #!/usr/bin/python3
-"""script that lists all states with a name
-starting with N (upper N) from the database
-"""
-import MySQLdb
 import sys
+import MySQLdb
 
+if len(sys.argv) != 4:
+    print("Usage: python script.py \
+            <mysql_username> <mysql_password> <database_name>")
+    sys.exit(1)
 
-if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        exit(1)
-    db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
-                         passwd=sys.argv[2], db=sys.argv[3])
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states \
-                 WHERE states.name LIKE 'N%' \
-                 ORDER BY states.id ASC")
-    rows = cur.fetchall()
-    for row in rows:
+mysql_username, mysql_password, database_name = \
+        sys.argv[1], sys.argv[2], sys.argv[3]
+
+try:
+    # Connect to the MySQL server
+    connection = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=mysql_username,
+        passwd=mysql_password,
+        db=database_name
+    )
+
+    # Create a cursor object to interact with the database
+    cursor = connection.cursor()
+
+    # Execute the SQL query to retrieve states starting with 'N'
+    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC;"
+    cursor.execute(query)
+
+    # Fetch and display the results
+    results = cursor.fetchall()
+    for row in results:
         print(row)
-    cur.close()
-    db.close()
+
+except MySQLdb.Error as e:
+    print("MySQL Error:", e)
+
+finally:
+    # Close the cursor and connection
+    if cursor:
+        cursor.close()
+    if connection:
+        connection.close()

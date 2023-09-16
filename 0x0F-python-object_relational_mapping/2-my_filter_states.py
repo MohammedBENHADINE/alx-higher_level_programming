@@ -21,7 +21,7 @@ def list_states_with_name(mysql_username, mysql_password,
         cursor = connection.cursor()
 
         # Execute the SQL query to retrieve states starting with 'N'
-        query = "SELECT * FROM states WHERE name LIKE '{}' \
+        query = "SELECT * FROM states WHERE name LIKE BINARY '{}' \
                 ORDER BY id ASC;".format(name)
         cursor.execute(query)
 

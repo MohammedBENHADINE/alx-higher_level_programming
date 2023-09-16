@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""script to list all states with N"""
+"""script to list all states with name"""
 import sys
 import MySQLdb
 
@@ -21,8 +21,8 @@ def list_states_with_name(mysql_username, mysql_password,
         cursor = connection.cursor()
 
         # Execute the SQL query to retrieve states starting with 'N'
-        query = f"SELECT * FROM states WHERE name LIKE BINARY '{name}' \
-                ORDER BY id ASC;"
+        query = "SELECT * FROM states WHERE name LIKE '{}' \
+                ORDER BY id ASC;".format(name)
         cursor.execute(query)
 
         # Fetch and return the results

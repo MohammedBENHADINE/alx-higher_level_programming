@@ -55,7 +55,6 @@ if __name__ == "__main__":
                                    database_name, state)
 
     if results:
-        cities = ""
-        for row in results:
-            cities += row[1] + ", "
-        print(cities[:-2])
+        cities = [row[1] for row in results]
+        data = ", ".join(cities)
+        print(data)

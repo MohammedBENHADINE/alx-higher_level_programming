@@ -1,9 +1,11 @@
 #!/usr/bin/python3
+"""script to list all states with N"""
 import sys
 import MySQLdb
 
 
 def list_states_with_n(mysql_username, mysql_password, database_name):
+    """function to get states from databse"""
     try:
         # Connect to the MySQL server
         connection = MySQLdb.connect(

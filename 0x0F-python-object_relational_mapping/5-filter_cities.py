@@ -22,9 +22,9 @@ def list_cities_by_state(mysql_username, mysql_password, database_name, state):
         # Execute the SQL query to retrieve states starting with 'N'
         query = "SELECT cities.id, cities.name \
                 FROM cities JOIN states ON cities.state_id=states.id \
-                WHERE states.name={} \
-                ORDER BY cities.id ASC;".format(state)
-        cursor.execute(query)
+                WHERE states.name=%s \
+                ORDER BY cities.id ASC;"
+        cursor.execute(query, (state,))
 
         # Fetch and return the results
         results = cursor.fetchall()

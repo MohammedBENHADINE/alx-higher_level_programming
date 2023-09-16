@@ -20,7 +20,8 @@ def list_states_with_n(mysql_username, mysql_password, database_name):
         cursor = connection.cursor()
 
         # Execute the SQL query to retrieve states starting with 'N'
-        query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id ASC;"
+        query = "SELECT * FROM states WHERE name LIKE BINARY 'N%' \
+                ORDER BY id ASC;"
         cursor.execute(query)
 
         # Fetch and return the results

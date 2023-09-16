@@ -43,14 +43,15 @@ def list_states_with_name(mysql_username, mysql_password,
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: python script.py \
-                <mysql_username> <mysql_password> <database_name> <name>")
+        print("Usage: python script.py <mysql_username> \
+                <mysql_password> <database_name> <name>")
         sys.exit(1)
 
     mysql_username, mysql_password, database_name, name = \
         sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
 
-    results = list_states_with_name(mysql_username, mysql_password, database_name, name)
+    results = list_states_with_name(mysql_username, mysql_password,
+                                    database_name, name)
 
     if results:
         for row in results:

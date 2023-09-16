@@ -21,7 +21,7 @@ def list_cities_by_state(mysql_username, mysql_password, database_name, state):
 
         # Execute the SQL query to retrieve states starting with 'N'
         query = "SELECT cities.id, cities.name \
-                FROM cities JOIN states on states.id=cities.state_id \
+                FROM cities INNER JOIN states on states.id=cities.state_id \
                 WHERE states.name=%s\
                 ORDER BY cities.id ASC;"
         cursor.execute(query, (state,))
